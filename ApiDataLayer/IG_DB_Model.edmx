@@ -1,0 +1,680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IG_DB_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="IDAccount" />
+          </Key>
+          <Property Name="IDAccount" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Language" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="DateJoined" Type="date" Nullable="false" />
+          <Property Name="Confirmed" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AccountRoute">
+          <Key>
+            <PropertyRef Name="IDAccountRoute" />
+          </Key>
+          <Property Name="IDAccountRoute" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RouteID" Type="int" Nullable="false" />
+          <Property Name="AccountID" Type="int" Nullable="false" />
+          <Property Name="RouteType" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bar">
+          <Key>
+            <PropertyRef Name="IDBar" />
+          </Key>
+          <Property Name="IDBar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lat" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lng" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BarID" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="About" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="IDLanguage" />
+          </Key>
+          <Property Name="IDLanguage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Monument">
+          <Key>
+            <PropertyRef Name="IDMonument" />
+          </Key>
+          <Property Name="IDMonument" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MonumentID" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Sound" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="About" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lat" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lng" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Restaurant">
+          <Key>
+            <PropertyRef Name="IDRestaurant" />
+          </Key>
+          <Property Name="IDRestaurant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lat" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lng" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RestaurantID" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="About" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Route">
+          <Key>
+            <PropertyRef Name="IDRoute" />
+          </Key>
+          <Property Name="IDRoute" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="About" Type="nvarchar" MaxLength="500" />
+          <Property Name="PicturePath" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="RouteBar">
+          <Key>
+            <PropertyRef Name="IDRouteMonument" />
+          </Key>
+          <Property Name="IDRouteMonument" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RouteID" Type="int" Nullable="false" />
+          <Property Name="OrderNumber" Type="int" Nullable="false" />
+          <Property Name="BarID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RouteMonument">
+          <Key>
+            <PropertyRef Name="IDRouteMonument" />
+          </Key>
+          <Property Name="IDRouteMonument" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RouteID" Type="int" Nullable="false" />
+          <Property Name="OrderNumber" Type="int" Nullable="false" />
+          <Property Name="MonumentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RouteRestaurant">
+          <Key>
+            <PropertyRef Name="IDRouteMonument" />
+          </Key>
+          <Property Name="IDRouteMonument" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RouteID" Type="int" Nullable="false" />
+          <Property Name="OrderNumber" Type="int" Nullable="false" />
+          <Property Name="RestaurantID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__AccountRo__Accou__6E01572D">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="AccountRoute" Type="Self.AccountRoute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="IDAccount" />
+            </Principal>
+            <Dependent Role="AccountRoute">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AccountRo__Route__6EF57B66">
+          <End Role="Route" Type="Self.Route" Multiplicity="1" />
+          <End Role="AccountRoute" Type="Self.AccountRoute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="IDRoute" />
+            </Principal>
+            <Dependent Role="AccountRoute">
+              <PropertyRef Name="RouteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RouteBar__BarID__6FE99F9F">
+          <End Role="Bar" Type="Self.Bar" Multiplicity="1" />
+          <End Role="RouteBar" Type="Self.RouteBar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bar">
+              <PropertyRef Name="IDBar" />
+            </Principal>
+            <Dependent Role="RouteBar">
+              <PropertyRef Name="BarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RouteBar__RouteI__70DDC3D8">
+          <End Role="Route" Type="Self.Route" Multiplicity="1" />
+          <End Role="RouteBar" Type="Self.RouteBar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="IDRoute" />
+            </Principal>
+            <Dependent Role="RouteBar">
+              <PropertyRef Name="RouteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RouteMonu__Monum__71D1E811">
+          <End Role="Monument" Type="Self.Monument" Multiplicity="1" />
+          <End Role="RouteMonument" Type="Self.RouteMonument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Monument">
+              <PropertyRef Name="IDMonument" />
+            </Principal>
+            <Dependent Role="RouteMonument">
+              <PropertyRef Name="MonumentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RouteMonu__Route__72C60C4A">
+          <End Role="Route" Type="Self.Route" Multiplicity="1" />
+          <End Role="RouteMonument" Type="Self.RouteMonument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="IDRoute" />
+            </Principal>
+            <Dependent Role="RouteMonument">
+              <PropertyRef Name="RouteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RouteRest__Resta__73BA3083">
+          <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="1" />
+          <End Role="RouteRestaurant" Type="Self.RouteRestaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurant">
+              <PropertyRef Name="IDRestaurant" />
+            </Principal>
+            <Dependent Role="RouteRestaurant">
+              <PropertyRef Name="RestaurantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RouteRest__Route__74AE54BC">
+          <End Role="Route" Type="Self.Route" Multiplicity="1" />
+          <End Role="RouteRestaurant" Type="Self.RouteRestaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="IDRoute" />
+            </Principal>
+            <Dependent Role="RouteRestaurant">
+              <PropertyRef Name="RouteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IG_DB_ModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountRoute" EntityType="Self.AccountRoute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bar" EntityType="Self.Bar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Monument" EntityType="Self.Monument" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Restaurant" EntityType="Self.Restaurant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Route" EntityType="Self.Route" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RouteBar" EntityType="Self.RouteBar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RouteMonument" EntityType="Self.RouteMonument" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RouteRestaurant" EntityType="Self.RouteRestaurant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__AccountRo__Accou__6E01572D" Association="Self.FK__AccountRo__Accou__6E01572D">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="AccountRoute" EntitySet="AccountRoute" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AccountRo__Route__6EF57B66" Association="Self.FK__AccountRo__Route__6EF57B66">
+            <End Role="Route" EntitySet="Route" />
+            <End Role="AccountRoute" EntitySet="AccountRoute" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RouteBar__BarID__6FE99F9F" Association="Self.FK__RouteBar__BarID__6FE99F9F">
+            <End Role="Bar" EntitySet="Bar" />
+            <End Role="RouteBar" EntitySet="RouteBar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RouteBar__RouteI__70DDC3D8" Association="Self.FK__RouteBar__RouteI__70DDC3D8">
+            <End Role="Route" EntitySet="Route" />
+            <End Role="RouteBar" EntitySet="RouteBar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RouteMonu__Monum__71D1E811" Association="Self.FK__RouteMonu__Monum__71D1E811">
+            <End Role="Monument" EntitySet="Monument" />
+            <End Role="RouteMonument" EntitySet="RouteMonument" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RouteMonu__Route__72C60C4A" Association="Self.FK__RouteMonu__Route__72C60C4A">
+            <End Role="Route" EntitySet="Route" />
+            <End Role="RouteMonument" EntitySet="RouteMonument" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RouteRest__Resta__73BA3083" Association="Self.FK__RouteRest__Resta__73BA3083">
+            <End Role="Restaurant" EntitySet="Restaurant" />
+            <End Role="RouteRestaurant" EntitySet="RouteRestaurant" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RouteRest__Route__74AE54BC" Association="Self.FK__RouteRest__Route__74AE54BC">
+            <End Role="Route" EntitySet="Route" />
+            <End Role="RouteRestaurant" EntitySet="RouteRestaurant" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IG_DB_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="IDAccount" />
+          </Key>
+          <Property Name="IDAccount" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Language" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateJoined" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Confirmed" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AccountRoutes" Relationship="Self.FK__AccountRo__Accou__73BA3083" FromRole="Account" ToRole="AccountRoute" />
+        </EntityType>
+        <EntityType Name="AccountRoute">
+          <Key>
+            <PropertyRef Name="IDAccountRoute" />
+          </Key>
+          <Property Name="IDAccountRoute" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RouteID" Type="Int32" Nullable="false" />
+          <Property Name="AccountID" Type="Int32" Nullable="false" />
+          <Property Name="RouteType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK__AccountRo__Accou__73BA3083" FromRole="AccountRoute" ToRole="Account" />
+          <NavigationProperty Name="Route" Relationship="Self.FK__AccountRo__Route__72C60C4A" FromRole="AccountRoute" ToRole="Route" />
+        </EntityType>
+        <EntityType Name="Bar">
+          <Key>
+            <PropertyRef Name="IDBar" />
+          </Key>
+          <Property Name="IDBar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Lat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Lng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BarID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="About" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RouteBars" Relationship="Self.FK__RouteBar__BarID__6EF57B66" FromRole="Bar" ToRole="RouteBar" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="IDLanguage" />
+          </Key>
+          <Property Name="IDLanguage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Monument">
+          <Key>
+            <PropertyRef Name="IDMonument" />
+          </Key>
+          <Property Name="IDMonument" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MonumentID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sound" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="About" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Lat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Lng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="RouteMonuments" Relationship="Self.FK__RouteMonu__Monum__6FE99F9F" FromRole="Monument" ToRole="RouteMonument" />
+        </EntityType>
+        <EntityType Name="Restaurant">
+          <Key>
+            <PropertyRef Name="IDRestaurant" />
+          </Key>
+          <Property Name="IDRestaurant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Lat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Lng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RestaurantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="About" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RouteRestaurants" Relationship="Self.FK__RouteRest__Resta__6E01572D" FromRole="Restaurant" ToRole="RouteRestaurant" />
+        </EntityType>
+        <EntityType Name="Route">
+          <Key>
+            <PropertyRef Name="IDRoute" />
+          </Key>
+          <Property Name="IDRoute" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="About" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AccountRoutes" Relationship="Self.FK__AccountRo__Route__72C60C4A" FromRole="Route" ToRole="AccountRoute" />
+          <NavigationProperty Name="RouteBars" Relationship="Self.FK__RouteBar__RouteI__4316F928" FromRole="Route" ToRole="RouteBar" />
+          <NavigationProperty Name="RouteMonuments" Relationship="Self.FK__RouteMonu__Route__3D5E1FD2" FromRole="Route" ToRole="RouteMonument" />
+          <NavigationProperty Name="RouteRestaurants" Relationship="Self.FK__RouteRest__Route__403A8C7D" FromRole="Route" ToRole="RouteRestaurant" />
+          <Property Name="PicturePath" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RouteBar">
+          <Key>
+            <PropertyRef Name="IDRouteMonument" />
+          </Key>
+          <Property Name="IDRouteMonument" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RouteID" Type="Int32" Nullable="false" />
+          <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+          <Property Name="BarID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bar" Relationship="Self.FK__RouteBar__BarID__6EF57B66" FromRole="RouteBar" ToRole="Bar" />
+          <NavigationProperty Name="Route" Relationship="Self.FK__RouteBar__RouteI__4316F928" FromRole="RouteBar" ToRole="Route" />
+        </EntityType>
+        <EntityType Name="RouteMonument">
+          <Key>
+            <PropertyRef Name="IDRouteMonument" />
+          </Key>
+          <Property Name="IDRouteMonument" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RouteID" Type="Int32" Nullable="false" />
+          <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+          <Property Name="MonumentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Monument" Relationship="Self.FK__RouteMonu__Monum__6FE99F9F" FromRole="RouteMonument" ToRole="Monument" />
+          <NavigationProperty Name="Route" Relationship="Self.FK__RouteMonu__Route__3D5E1FD2" FromRole="RouteMonument" ToRole="Route" />
+        </EntityType>
+        <EntityType Name="RouteRestaurant">
+          <Key>
+            <PropertyRef Name="IDRouteMonument" />
+          </Key>
+          <Property Name="IDRouteMonument" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RouteID" Type="Int32" Nullable="false" />
+          <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+          <Property Name="RestaurantID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Restaurant" Relationship="Self.FK__RouteRest__Resta__6E01572D" FromRole="RouteRestaurant" ToRole="Restaurant" />
+          <NavigationProperty Name="Route" Relationship="Self.FK__RouteRest__Route__403A8C7D" FromRole="RouteRestaurant" ToRole="Route" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK__AccountRo__Accou__73BA3083">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="AccountRoute" Type="Self.AccountRoute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="IDAccount" />
+            </Principal>
+            <Dependent Role="AccountRoute">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AccountRo__Route__72C60C4A">
+          <End Role="Route" Type="Self.Route" Multiplicity="1" />
+          <End Role="AccountRoute" Type="Self.AccountRoute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="IDRoute" />
+            </Principal>
+            <Dependent Role="AccountRoute">
+              <PropertyRef Name="RouteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RouteBar__BarID__6EF57B66">
+          <End Role="Bar" Type="Self.Bar" Multiplicity="1" />
+          <End Role="RouteBar" Type="Self.RouteBar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bar">
+              <PropertyRef Name="IDBar" />
+            </Principal>
+            <Dependent Role="RouteBar">
+              <PropertyRef Name="BarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RouteMonu__Monum__6FE99F9F">
+          <End Role="Monument" Type="Self.Monument" Multiplicity="1" />
+          <End Role="RouteMonument" Type="Self.RouteMonument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Monument">
+              <PropertyRef Name="IDMonument" />
+            </Principal>
+            <Dependent Role="RouteMonument">
+              <PropertyRef Name="MonumentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RouteRest__Resta__6E01572D">
+          <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="1" />
+          <End Role="RouteRestaurant" Type="Self.RouteRestaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurant">
+              <PropertyRef Name="IDRestaurant" />
+            </Principal>
+            <Dependent Role="RouteRestaurant">
+              <PropertyRef Name="RestaurantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RouteBar__RouteI__4316F928">
+          <End Role="Route" Type="Self.Route" Multiplicity="1" />
+          <End Role="RouteBar" Type="Self.RouteBar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="IDRoute" />
+            </Principal>
+            <Dependent Role="RouteBar">
+              <PropertyRef Name="RouteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RouteMonu__Route__3D5E1FD2">
+          <End Role="Route" Type="Self.Route" Multiplicity="1" />
+          <End Role="RouteMonument" Type="Self.RouteMonument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="IDRoute" />
+            </Principal>
+            <Dependent Role="RouteMonument">
+              <PropertyRef Name="RouteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RouteRest__Route__403A8C7D">
+          <End Role="Route" Type="Self.Route" Multiplicity="1" />
+          <End Role="RouteRestaurant" Type="Self.RouteRestaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="IDRoute" />
+            </Principal>
+            <Dependent Role="RouteRestaurant">
+              <PropertyRef Name="RouteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IG_DB_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="AccountRoutes" EntityType="Self.AccountRoute" />
+          <EntitySet Name="Bars" EntityType="Self.Bar" />
+          <EntitySet Name="Languages" EntityType="Self.Language" />
+          <EntitySet Name="Monuments" EntityType="Self.Monument" />
+          <EntitySet Name="Restaurants" EntityType="Self.Restaurant" />
+          <EntitySet Name="Routes" EntityType="Self.Route" />
+          <EntitySet Name="RouteBars" EntityType="Self.RouteBar" />
+          <EntitySet Name="RouteMonuments" EntityType="Self.RouteMonument" />
+          <EntitySet Name="RouteRestaurants" EntityType="Self.RouteRestaurant" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK__AccountRo__Accou__73BA3083" Association="Self.FK__AccountRo__Accou__73BA3083">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="AccountRoute" EntitySet="AccountRoutes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AccountRo__Route__72C60C4A" Association="Self.FK__AccountRo__Route__72C60C4A">
+            <End Role="Route" EntitySet="Routes" />
+            <End Role="AccountRoute" EntitySet="AccountRoutes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RouteBar__BarID__6EF57B66" Association="Self.FK__RouteBar__BarID__6EF57B66">
+            <End Role="Bar" EntitySet="Bars" />
+            <End Role="RouteBar" EntitySet="RouteBars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RouteMonu__Monum__6FE99F9F" Association="Self.FK__RouteMonu__Monum__6FE99F9F">
+            <End Role="Monument" EntitySet="Monuments" />
+            <End Role="RouteMonument" EntitySet="RouteMonuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RouteRest__Resta__6E01572D" Association="Self.FK__RouteRest__Resta__6E01572D">
+            <End Role="Restaurant" EntitySet="Restaurants" />
+            <End Role="RouteRestaurant" EntitySet="RouteRestaurants" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RouteBar__RouteI__4316F928" Association="Self.FK__RouteBar__RouteI__4316F928">
+            <End Role="Route" EntitySet="Routes" />
+            <End Role="RouteBar" EntitySet="RouteBars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RouteMonu__Route__3D5E1FD2" Association="Self.FK__RouteMonu__Route__3D5E1FD2">
+            <End Role="Route" EntitySet="Routes" />
+            <End Role="RouteMonument" EntitySet="RouteMonuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RouteRest__Route__403A8C7D" Association="Self.FK__RouteRest__Route__403A8C7D">
+            <End Role="Route" EntitySet="Routes" />
+            <End Role="RouteRestaurant" EntitySet="RouteRestaurants" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IG_DB_ModelStoreContainer" CdmEntityContainer="IG_DB_Entities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="IG_DB_Model.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="IDAccount" ColumnName="IDAccount" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="DateJoined" ColumnName="DateJoined" />
+                <ScalarProperty Name="Confirmed" ColumnName="Confirmed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountRoutes">
+            <EntityTypeMapping TypeName="IG_DB_Model.AccountRoute">
+              <MappingFragment StoreEntitySet="AccountRoute">
+                <ScalarProperty Name="IDAccountRoute" ColumnName="IDAccountRoute" />
+                <ScalarProperty Name="RouteID" ColumnName="RouteID" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="RouteType" ColumnName="RouteType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bars">
+            <EntityTypeMapping TypeName="IG_DB_Model.Bar">
+              <MappingFragment StoreEntitySet="Bar">
+                <ScalarProperty Name="IDBar" ColumnName="IDBar" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Lng" ColumnName="Lng" />
+                <ScalarProperty Name="BarID" ColumnName="BarID" />
+                <ScalarProperty Name="About" ColumnName="About" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="IG_DB_Model.Language">
+              <MappingFragment StoreEntitySet="Language">
+                <ScalarProperty Name="IDLanguage" ColumnName="IDLanguage" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Monuments">
+            <EntityTypeMapping TypeName="IG_DB_Model.Monument">
+              <MappingFragment StoreEntitySet="Monument">
+                <ScalarProperty Name="IDMonument" ColumnName="IDMonument" />
+                <ScalarProperty Name="MonumentID" ColumnName="MonumentID" />
+                <ScalarProperty Name="Sound" ColumnName="Sound" />
+                <ScalarProperty Name="About" ColumnName="About" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Lng" ColumnName="Lng" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Restaurants">
+            <EntityTypeMapping TypeName="IG_DB_Model.Restaurant">
+              <MappingFragment StoreEntitySet="Restaurant">
+                <ScalarProperty Name="IDRestaurant" ColumnName="IDRestaurant" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Lng" ColumnName="Lng" />
+                <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+                <ScalarProperty Name="About" ColumnName="About" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Routes">
+            <EntityTypeMapping TypeName="IG_DB_Model.Route">
+              <MappingFragment StoreEntitySet="Route">
+                <ScalarProperty Name="PicturePath" ColumnName="PicturePath" />
+                <ScalarProperty Name="IDRoute" ColumnName="IDRoute" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="About" ColumnName="About" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RouteBars">
+            <EntityTypeMapping TypeName="IG_DB_Model.RouteBar">
+              <MappingFragment StoreEntitySet="RouteBar">
+                <ScalarProperty Name="IDRouteMonument" ColumnName="IDRouteMonument" />
+                <ScalarProperty Name="RouteID" ColumnName="RouteID" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="BarID" ColumnName="BarID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RouteMonuments">
+            <EntityTypeMapping TypeName="IG_DB_Model.RouteMonument">
+              <MappingFragment StoreEntitySet="RouteMonument">
+                <ScalarProperty Name="IDRouteMonument" ColumnName="IDRouteMonument" />
+                <ScalarProperty Name="RouteID" ColumnName="RouteID" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="MonumentID" ColumnName="MonumentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RouteRestaurants">
+            <EntityTypeMapping TypeName="IG_DB_Model.RouteRestaurant">
+              <MappingFragment StoreEntitySet="RouteRestaurant">
+                <ScalarProperty Name="IDRouteMonument" ColumnName="IDRouteMonument" />
+                <ScalarProperty Name="RouteID" ColumnName="RouteID" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="IG_DB_Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

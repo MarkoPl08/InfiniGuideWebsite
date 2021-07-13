@@ -1,0 +1,39 @@
+﻿@model IG_Website.Models.IndexViewModel
+@{
+	ViewBag.Title = "Manage";
+}
+@section Scripts {
+	<link href="~/Content/profileStyles.css" rel="stylesheet" />
+}
+<section class="profile">
+	<header class="header">
+		<div class="details">
+			<img src="~/Images/default.jpg" alt="profile" class="profile-pic">
+			<h1 class="heading" id="fullname"></h1>
+			<div class="personDetails">
+				<div class="location col-2">
+					<p id="location"></p>
+				</div>
+				<div class="location col-5">
+					<p id="dateOfBirth"></p>
+				</div>
+				<div class="location col-5">
+					<p id="dateJoined"></p>
+				</div>
+			</div>
+			<div>
+				<div style="margin-top:2.5rem">
+					@if (Model.HasPassword)
+					{
+						@Html.ActionLink("Change password", "ChangePassword", new { area = "" }, new { @class = "editProfile" })
+					}
+					else
+					{
+						@Html.ActionLink("Create", "SetPassword", new { area = "" }, new { @class = "editProfile" })
+					}
+				</div>
+			</div>
+		</div>
+	</header>
+</section>
+<script src="~/Scripts/Profile.js"></script>

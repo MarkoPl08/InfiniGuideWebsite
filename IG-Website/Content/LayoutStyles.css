@@ -1,0 +1,424 @@
+﻿html, body {
+	height: 100%;
+}
+
+body {
+	background-color: #F8EDEB;
+	padding-bottom: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+/*.navbar-inverse .navbar-brand:hover {
+    color: red;
+    text-shadow: 2.5px 2.5px #ffbaba;
+}*/
+
+/*.navbar-inverse .navbar-brand {
+    color: black;
+    font-weight: 600;
+    font-size: 4rem;
+    margin-top: 1.2rem;
+    font-family: 'Alegreya', serif;
+    text-shadow: 2.5px 2.5px #b8b8b8;
+}*/
+.navbar-brand {
+	background: url(../Images/LogoTrsnpt.png) no-repeat top left;
+	background-size: 170px;
+	display: block;
+	width: 170px;
+	margin-top: .8rem;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+	color: red;
+	text-shadow: 1px 1.2px #ffbaba;
+}
+
+
+.navbar-inverse .navbar-nav > li > a {
+	color: black;
+	margin-top: 1.2rem;
+	/*text-shadow: 2.5px 2.5px #b8b8b8;*/
+	font-size: 22px;
+	background: -webkit-linear-gradient(#ffc1ad, #ff5f2b);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.navbar {
+	min-height: 70px;
+	background: rgb(247,231,211);
+	background: linear-gradient(90deg, rgba(247,231,211,1) 15%, rgba(255,230,199,1) 35%, rgba(247,231,211,1) 50%, rgba(255,230,199,1) 65%, rgba(247,231,211,1) 85%);
+	border: 1px solid #fae1c2;
+	animation: navAnimacija 1s;
+}
+
+@keyframes navAnimacija {
+	0% {
+		top: -250px;
+	}
+
+	100% {
+		top: 0px;
+	}
+}
+
+/*FOOTER*/
+
+footer.jumbotron {
+	flex-shrink: 0;
+	margin-bottom: 0;
+}
+
+#footer {
+	border-top: 2px solid #fcdab1;
+	background: rgb(248,237,224);
+	background: linear-gradient(90deg, rgba(248,237,224,1) 20%, rgba(252,218,177,1) 50%, rgba(248,237,224,1) 80%);
+}
+
+.container.body-content {
+	flex: 1 0 auto;
+}
+
+.footerLinks {
+	font-family: Roboto-Medium;
+	text-shadow: 1px 1px #ce6a85;
+	font-size: 1.8rem;
+}
+
+	.footerLinks:link {
+		text-decoration: none;
+		color: #ce6a85;
+	}
+
+	.footerLinks:visited {
+		text-decoration: none;
+		color: #ce6a85;
+	}
+
+	.footerLinks:hover {
+		text-decoration: none;
+		color: #e06385;
+		text-shadow: 1.5px 1.5px #e06385;
+	}
+
+	.footerLinks:active {
+		text-decoration: none;
+		color: #ce6a85;
+	}
+/*LOGINˇ*/
+#btnLogin {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	background-color: #ce6a85;
+	border-color: #ce6a85;
+}
+
+	#btnLogin:hover {
+		background-color: #e06385;
+		border-color: #e06385;
+	}
+
+
+#loginForma {
+	text-align: center;
+}
+
+#rememberMe {
+	padding-right: 4rem;
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*REGISTER*/
+@font-face {
+	font-family: "Roboto-Bold";
+	src: url('../fonts/Roboto-Bold.ttf');
+}
+
+#btnRegister {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	background-color: #ce6a85;
+	border-color: #ce6a85;
+}
+
+	#btnRegister:hover {
+		background-color: #e06385;
+		border-color: #e06385;
+	}
+
+.registration {
+	font-family: Roboto-Bold;
+}
+
+/*CONTACTUS*/
+.contactTitle {
+	text-align: center;
+	margin-top: 12rem;
+	color: #ce6a85;
+	font-size: 4rem;
+	font-family: Roboto-Medium;
+}
+
+.contactUsContent {
+	margin-top: 4rem;
+	color: #ce6a85;
+	font-family: Roboto-Regular;
+	text-align: center;
+}
+
+.contactBackground {
+	background: #fcebe8;
+}
+/*MAP*/
+#map {
+	margin-top: 4rem;
+	height: 500px;
+	width: 100%;
+	padding: 0;
+}
+
+#dvMap {
+	margin-top: 4rem;
+	height: 700px;
+	width: 74%;
+	padding: 0;
+}
+
+.ddList {
+	padding: 0;
+	margin-top: 0.8rem;
+	margin-left:1.5rem;
+}
+
+.placesList {
+	margin-top: 2rem;
+}
+
+.btnDropdown {
+	background-color: #ce6a85;
+	border-color: #ce6a85;
+	margin-top: 2rem;
+	color: white;
+}
+
+	.btnDropdown:hover {
+		background-color: #e06385;
+		border-color: #e06385;
+		color: white;
+	}
+
+.routesPage {
+	margin-top: 2rem;
+}
+
+/*Profile*/
+@font-face {
+	font-family: "Roboto-Condensed";
+	src: url('../fonts/Roboto-Condensed.ttf');
+}
+
+@font-face {
+	font-family: "Roboto-Medium";
+	src: url('../fonts/Roboto-Medium.ttf');
+}
+
+@font-face {
+	font-family: "Roboto-Regular";
+	src: url('../fonts/Roboto-Regular.ttf');
+}
+
+.header {
+	min-height: 60vh;
+	background: #009FFF;
+	background: linear-gradient(to right, #F8EDEB, #ffc1ad);
+	color: white;
+	clip-path: ellipse(100vw 60vh at 50% 50%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 3rem;
+}
+
+.details {
+	text-align: center;
+}
+
+.profile-pic {
+	height: 15rem;
+	width: 15rem;
+	border-radius: 50%;
+}
+
+.location p {
+	display: inline-block;
+	font-size: 1.5rem;
+	font-family: Roboto-Regular;
+	color: #e06385;
+	text-shadow: .5px .5px #e06385;
+}
+
+.stats {
+	display: flex;
+}
+
+	.stats .col-4 {
+		width: 10rem;
+		text-align: center;
+		font-family: Roboto-Condensed;
+		color: #e06385;
+		text-shadow: .5px .5px #e06385;
+		margin-left: 2.5rem;
+		margin-right: 2.5rem;
+	}
+
+.heading {
+	font-weight: 400;
+	font-size: 2.5rem;
+	margin: 1rem 0;
+	font-family: Roboto-Medium;
+	color: #e06385;
+	text-shadow: 1px 1px #e06385;
+}
+
+.editProfile {
+	font-family: Roboto-Medium;
+	text-shadow: 1px 1px #ce6a85;
+	font-size: 1.7rem;
+}
+
+	.editProfile:link {
+		text-decoration: none;
+		color: #ce6a85;
+	}
+
+	.editProfile:visited {
+		text-decoration: none;
+		color: #ce6a85;
+	}
+
+	.editProfile:hover {
+		text-decoration: none;
+		color: #e06385;
+		text-shadow: 1.5px 1.5px #e06385;
+	}
+
+	.editProfile:active {
+		text-decoration: none;
+		color: #ce6a85;
+	}
+
+/*EditProfile*/
+.passLabel {
+	font-size: 1.2rem;
+	font-family: Roboto-Medium;
+	color: #e06385;
+}
+
+.btnChangePass {
+	background-color: #ce6a85;
+	border-color: #ce6a85;
+	color: white;
+}
+
+	.btnChangePass:hover {
+		background-color: #e06385;
+		border-color: #e06385;
+		color: white;
+	}
+
+/*EMAIL CONFIRMED*/
+.emailConfirmationTitle {
+	font-family: Roboto-Medium;
+	text-align: center;
+	margin-top: 15rem;
+	color: #ce6a85;
+	font-size: 5rem;
+}
+
+.emailConfirmation {
+	font-family: Roboto-Bold;
+	text-align: center;
+	color: #ce6a85;
+	font-size: 1.7rem;
+}
+
+/*Route list*/
+
+
+.placeIcon {
+	font-size: 20px;
+	margin-top: 1px;
+}
+
+.placeName {
+	margin-top: 5px;
+}
+
+.placeRemove {
+	text-align: right;
+}
+
+.routesBackround {
+	margin-top: 4.15rem;
+	background: #ffded9;
+}
+
+.placeItem {
+	background-color: #fcebe8;
+	border: 0px;
+	margin-bottom: 3px;
+	margin-left:1rem;
+}
+
+.btnRemovePlace {
+	padding-left: 7px;
+	padding-right: 7px;
+}
+/*Font*/
+.createRouteFont {
+	font-family: Roboto-Bold;
+}
+
+/*small Routes*/
+
+.routeItem {
+	background: #fcebe8;
+	border: 0px;
+	margin-bottom: 3px;
+}
+
+.btnSavePlace {
+	background-color: #ce6a85;
+	border-color: #ce6a85;
+}
+
+.btnSavePlace:hover {
+	background-color: #e06385;
+	border-color: #e06385;
+}
+
+.btnRemovePlace {
+	background-color: #ce6a85;
+	border-color: #ce6a85;
+}
+
+.btnRemovePlace:hover {
+	background-color: #e06385;
+	border-color: #e06385;
+}
+
+.ddlist2 {
+	padding: 0;
+	margin-top: 0.8rem;
+	padding-left: 0;
+	margin-right: 8rem;
+	margin: 0;
+	margin-bottom: 6px;
+}
